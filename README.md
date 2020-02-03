@@ -36,6 +36,11 @@ gradle run --args {sites_file_path} {number_of_workers} {pattern}
 
 gradle run --args="sites.txt 3 Coronavirus"
 gradle run --args="/Users/advargas/Documentos/sites2.txt 3 Coronavirus"
+
+# If you don't have gradle installed locally, you can use the gradle wrapper
+./gradlew build
+./gradlew gradle run --args="sites.txt 3 Coronavirus"
+
 ```
 
 

@@ -1,0 +1,20 @@
+apply plugin : "java"
+apply plugin : "application"
+
+mainClassName = 'com.scanner.SitesScannerApp'
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    archiveBaseName = 'sites-scanner'
+    archiveVersion =  '0.1.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    implementation "org.jsoup:jsoup:1.12.1"
+}

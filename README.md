@@ -31,7 +31,8 @@ gradle build
 gradle run --args {sites_file_path} {number_of_workers} {pattern}
 
 # Examples
-# There is a file sites.txt in the root folder for testing purposes, but you can set an absolute path to an external txt file.
+# There is a file sites.txt in the root folder for testing purposes, 
+# but you can set an absolute path to an external txt file.
 
 gradle run --args="sites.txt 3 Coronavirus"
 gradle run --args="/Users/advargas/Documentos/sites2.txt 3 Coronavirus"

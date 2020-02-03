@@ -1,12 +1,14 @@
 # Sites Scanner
 
-This Java application gets a list of URLs an concurrently finds matches of a patter in the main page of every site.
+This Java application gets a list of URLs an concurrently finds matches of a pattern in the main page of every website.
 
 The 2 main classes in the model are *SitesScanner* and *ContentFinder*:
 
 ![Classes Diagram](diagrams/sites-scanner.png)
 
 Concurrency is managed using the concurrency library in Java, with the *ExecutorService*.
+
+The number of workers in parallel is an argument of the application, but it calculates the final number of groups of sites to process, putting the remaining in an extra group.
 
 ## Running the app
 
@@ -29,7 +31,7 @@ gradle build
 gradle run --args {sites_file_path} {number_of_workers} {pattern}
 
 # Examples
-# There is a file *sites.txt* in the root folder for testing purposes, but you can set an absolute path to an external txt file.
+# There is a file sites.txt in the root folder for testing purposes, but you can set an absolute path to an external txt file.
 
 gradle run --args="sites.txt 3 Coronavirus"
 gradle run --args="/Users/advargas/Documentos/sites2.txt 3 Coronavirus"
@@ -56,9 +58,10 @@ List<Future<List<String>>> futures = executorService.invokeAll(callableTasks);
 The number of workers is an argument in the Java app. However, the application splits the list of sites according to the number of workers and leave the remaining sites in an extra group.
 
 For this partition of groups, the app implements the *Partition* class suggested here:
+
 [https://e.printstacktrace.blog/divide-a-list-to-lists-of-n-size-in-Java-8/](https://e.printstacktrace.blog/divide-a-list-to-lists-of-n-size-in-Java-8/)
 
-Google Guava and Apache Commons Collections are alternative options to implement this division in groups.
+*Google Guava* and *Apache Commons Collections* are alternative options to implement this division in groups.
 
 
 ## Content Finder
